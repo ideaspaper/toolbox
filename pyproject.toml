@@ -1,0 +1,39 @@
+[project]
+name = "toolbox"
+version = "0.1.0"
+description = "A personal toolbox of small command-line utilities"
+readme = "README.md"
+authors = [
+    { name = "Daniel Kristianto Haryono", email = "daniel.haryono@shopee.com" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "pillow>=13.0.0",
+    "pypdf>=6.21.1",
+    "segno>=1.6.6",
+    "typer>=0.27.3",
+]
+
+[project.scripts]
+toolbox = "toolbox:main"
+
+[build-system]
+requires = ["uv_build>=0.13.1,<0.14.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "nuitka>=4.3.1",
+    "pytest>=9.1.1",
+    "ruff>=0.17.1",
+    "zstandard>=0.25.0",
+]
+
+[tool.ruff]
+line-length = 88
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
